@@ -10,7 +10,9 @@ import io.cucumber.junit.CucumberOptions;
         glue = {"stepDefinitions"},
         //tags = "@activity1"
         //tags = "@activity2"
-        tags = "@SmokeTest"
+        //tags = "@SmokeTest"
+        //tags = "@activity4"
+        tags = "@activity5"
 )
 
 public class ActivitiesRunner {
