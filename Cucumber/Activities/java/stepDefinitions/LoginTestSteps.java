@@ -15,17 +15,33 @@ import java.time.Duration;
 public class LoginTestSteps {
     WebDriver driver;
     WebDriverWait wait;
-    @Given("^Testing Login$")
+    @Given("^User is on Login page$")
     public void launch(){
         driver = new FirefoxDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://www.training-support.net/selenium/login-form");
     }
 
-    @When("^User enters username and password$")
+    @When("^Test$")
     public void login(){
         driver.findElement(By.id("username")).sendKeys("admin");
         driver.findElement(By.id("password")).sendKeys("password");
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("action-confirmation")));
+    }
+
+    @When("^Without Examples User enters \"(.*)\" and \"(.*)\"$")
+    public void loginWithoutExamples(String username, String password){
+        driver.findElement(By.id("username")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("action-confirmation")));
+    }
+
+    @When("^User enters \"(.*)\" and \"(.*)\"$")
+    public void loginWithExamples(String username, String password){
+        driver.findElement(By.id("username")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("action-confirmation")));
     }
