@@ -10,9 +10,13 @@ import io.cucumber.junit.CucumberOptions;
         glue = {"stepDefinitions"},
         //tags = "@activity1"
         //tags = "@activity2"
-        //tags = "@SmokeTest"
+        tags = "@SmokeTest",
         //tags = "@activity4"
-        tags = "@activity5"
+        //tags = "@activity5"
+        //plugin = {"pretty"},
+        plugin = {"html: test-reports"},
+        //plugin = {"json: test-reports"},
+        monochrome = true
 )
 
 public class ActivitiesRunner {
