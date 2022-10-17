@@ -1,0 +1,4 @@
+This activity runs the activities in parallel.
+
+
+Refer Path: FST-M1/TestNG/Activities/test/java/testng.xml
